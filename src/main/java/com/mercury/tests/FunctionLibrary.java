@@ -24,7 +24,7 @@ public class FunctionLibrary {
 	@Parameters("browser")
 	public void beforeMethod(@Optional("firefox") String browser) {
 
-		RemoteWebDriver driver = null;
+		RemoteWebDriver driver ;
 
 		switch(browser){	  
 
