@@ -1,5 +1,7 @@
 package com.mercury.tests;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -56,7 +58,7 @@ public class BaseTest {
 			break;
 		}
 
-
+		threadDriver.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 	}
 
