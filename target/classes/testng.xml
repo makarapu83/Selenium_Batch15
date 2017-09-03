@@ -2,9 +2,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Suite" parallel="false">
   <test name="Test">
-  <parameter name="browser" value="ie"></parameter>
+  <parameter name="browser" value="firefox"></parameter>
     <classes>
-      <class name="com.mercury.tests.MercurySignInTest"/>
+      <class name="com.mercury.tests.FlightSearchTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
