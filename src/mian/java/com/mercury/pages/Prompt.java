@@ -9,32 +9,23 @@ import org.testng.annotations.Test;
 
 import com.mercury.tests.FunctionLibrary;
 
-public class ConfermationPage extends FunctionLibrary
+public class Prompt extends FunctionLibrary
 {
-RemoteWebDriver driver; 
-
- 
-
+	RemoteWebDriver driver; 
+	
 	@FindBy(how=How.XPATH, using="//button")
-	public WebElement _OnclickButton;
-
-
-		
-	public ConfermationPage(RemoteWebDriver driver)
+	public WebElement _OnclickPromtButton;
+	
+	public Prompt(RemoteWebDriver driver)
 	{
 	this.driver = driver;
 	PageFactory.initElements(driver, this);
 	}
 	
-	public void alertfunction()
+	public fnprompt()
 	{
-		driver.get("file:///C:/Selenium/confirmation.html");
-		fnClick(_OnclickButton);
-		getText(driver);
-		fnAlertAccept(driver);
-		//fndismiss(driver);
-		
-		
+		driver.get("file:///C:/Selenium/prompt.html");
+		fnClick(_OnclickPromtButton);
 		
 	}
   
