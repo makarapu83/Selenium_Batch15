@@ -74,6 +74,21 @@ public class FunctionLibrary
 		Alert txt = driver.switchTo().alert();
 		String output = txt.getText();	
 		System.out.println("Text is:"+ output);
+		
+	}
+	
+	public void gettxtprompt(RemoteWebDriver driver)
+	{
+		Alert gettxt = driver.switchTo().alert();
+	    gettxt.sendKeys("akshita");
+	    gettxt.accept();
+		
+	}
+	public void fnVerifyPrompt(WebElement element, String val)
+	{
+		Select select = new Select(element);
+		WebElement ele = select.getFirstSelectedOption();		
+		Assert.assertEquals(val, ele.getText());
 	}
 
 	
