@@ -1,8 +1,16 @@
 package com.mercury.tests;
 
+
 import org.testng.annotations.Test;
+
+import org.openqa.selenium.Alert;
+import junit.framework.Assert;
+
 import org.testng.annotations.Parameters;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -14,52 +22,60 @@ import org.slf4j.LoggerFactory;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 
-public class FunctionLibrary {
-
-	/*ThreadLocal<RemoteWebDriver> threadDriver = new ThreadLocal<RemoteWebDriver>();
-	Logger log = LoggerFactory.getLogger(getClass());
-
-
-	@BeforeMethod(alwaysRun=true)
-	@Parameters("browser")
-	public void beforeMethod(@Optional("firefox") String browser) {
-
-		RemoteWebDriver driver = null;
-
-		switch(browser){	  
-
-		case "firefox":
-			driver = new FirefoxDriver();
-			threadDriver.set(driver);
-			break;
-
-		case "ie":
-
-			DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
-			capabilities.setCapability(CapabilityType.BROWSER_NAME, "IE");
-			capabilities.setCapability(CapabilityType.VERSION, "11");
-			capabilities.setCapability("nativeEvents", true);
-			capabilities.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
-			capabilities.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.ACCEPT);
-			capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
-			capabilities.setCapability("ignoreZoomSetting", true);			
-			System.setProperty("webdriver.ie.driver", "Drivers/IEDriverServer.exe");
-			driver = new InternetExplorerDriver(capabilities);
-			threadDriver.set(driver);
-
-			break;
-
-		case "chrome":
-			driver = new ChromeDriver();
-			break;
-		}
-
-
-
+public class FunctionLibrary 
+{
+	public void fnselectByIndex(WebElement element, int x)
+	{
+		Select byindex = new Select(element);
+		byindex.selectByIndex(x);
+					
+	}
+	
+	public void fnSelectByValue(WebElement element, String str)
+	{
+		Select byvalue = new Select(element);
+		byvalue.selectByValue(str);
+	}
+	
+	public void fnSelectByvisibility(WebElement element, String str)
+	{
+		Select byvisisbility = new Select(element);
+		byvisisbility.selectByVisibleText(str);
+	}
+	public void fnVerifySelectedDropDownOption(WebElement element, String val)
+	{
+		Select select = new Select(element);
+		WebElement ele = select.getFirstSelectedOption();		
+		Assert.assertEquals(val, ele.getText());
 	}
 
-	public RemoteWebDriver getDriver(){
-		return threadDriver.get();
+	public void fnClick(WebElement element)
+	{
+	element.click();
 	}
-*/
+	public void clickByJS(WebElement element, RemoteWebDriver driver){
+
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].click()", element);
+	}
+	public void fnAlertAccept(RemoteWebDriver driver)
+	{
+		Alert al = driver.switchTo().alert();		
+		al.accept();
+	}
+	public void fndismiss(RemoteWebDriver driver)
+	{
+		Alert dis = driver.switchTo().alert();
+		dis.dismiss();
+
+	}
+	public void getText(RemoteWebDriver driver)
+	{
+		Alert txt = driver.switchTo().alert();
+		String output = txt.getText();	
+		System.out.println("Text is:"+ output);
+	}
+
+	
+
 }
