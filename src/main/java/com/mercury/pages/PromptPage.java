@@ -16,16 +16,19 @@ public class PromptPage extends FunctionLibrary
 	@FindBy(how=How.XPATH, using="//button")
 	public WebElement _OnclickPromtButton;
 	
-	public Prompt(RemoteWebDriver driver)
+	public PromptPage(RemoteWebDriver driver)
 	{
 	this.driver = driver;
 	PageFactory.initElements(driver, this);
 	}
 	
-	public fnprompt()
+	public void fnprompt()
 	{
 		driver.get("file:///C:/Selenium/prompt.html");
 		fnClick(_OnclickPromtButton);
+		gettxtprompt(driver);
+		fnVerifyPrompt(_OnclickPromtButton, "swathi");
+		fnAlertAccept(driver);
 		
 	}
   
