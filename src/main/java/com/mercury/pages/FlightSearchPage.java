@@ -36,7 +36,7 @@ public class FlightSearchPage extends FunctionLibrary{
 	
 	public void flightSearch(){
 		//Selecting one way radio button
-		_onewayRadioButton.click();
+		fnClick(_onewayRadioButton);
 		
 		//Selecting Passenger Count
 		fnSelectByIndex(_passengerDropDown,2);
@@ -44,8 +44,11 @@ public class FlightSearchPage extends FunctionLibrary{
 		//Selecting From City
 		fnSelectByValue(_fromCity,"London");		
 		
-		//Selecting Business CLass
-		_businessClass.click();
+		//Verifying the selected dropdown value
+		fnVerifySelectedDropDownOption(_fromCity, "London");
+		
+		//Selecting Business CLass		
+		clickByJS(_businessClass, driver);
 				
 	}
 
