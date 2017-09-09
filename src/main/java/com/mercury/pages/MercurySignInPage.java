@@ -29,9 +29,9 @@ public class MercurySignInPage {
   public void loginToMercury(String u, String p) {
 	  driver.get("http://newtours.demoaut.com/");
 	  _uname.clear();
-	  _uname.sendKeys(u);
+	  _uname.sendKeys(System.getenv(u));
 	  _pwd.clear();
-	  _pwd.sendKeys(p);
+	  _pwd.sendKeys(System.getenv(p));
 	  _login.click();
   }
 }

@@ -1,8 +1,16 @@
 package com.mercury.tests;
 
 import org.testng.annotations.Test;
-import org.testng.annotations.Parameters;
 
+import com.gargoylesoftware.htmlunit.javascript.background.JavaScriptExecutor;
+import com.sun.jna.AltCallingConvention;
+
+import junit.framework.Assert;
+
+import org.testng.annotations.Parameters;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -29,30 +37,57 @@ public class FunctionLibrary {
 		    	select.selectByValue(s);
 		         }
 	     
-	        public void fnSelectByvisibleStringFromMonth(WebElement element , String s) {
+	        public void fnSelectByvisibleText(WebElement element , String s) {
 		    	Select select = new Select(element);
 		    	select.selectByVisibleText(s);
 		 	      }
 	      
-	       public void fnSelectByIndexFromDay(WebElement element , int x) {
-		    	Select select = new Select(element);
-		    	select.selectByIndex(x);
-		 	      }
-	       public void fnSelectByvisibleStringToCity(WebElement element , String s) {
-		    	Select select = new Select(element);
-		    	select.selectByVisibleText(s);
-		 	      }
-	       public void fnSelectByvisibleStringToMonth(WebElement element , String s) {
-		    	Select select = new Select(element);
-		    	select.selectByVisibleText(s);
-		 	      }
+	        public void fnVerifySelectDropDownList(WebElement element , String s) {
+	        	Select select=new Select(element);
+	        	WebElement ele = select.getFirstSelectedOption();
+	        	Assert.assertEquals(s, ele.getText() );
+	             }
+	        
+	        public void fnClick(WebElement element) {
+	            element.click();
+	             }
 	      
-	       public void fnSelectByIndexToDay(WebElement element , int x) {
-		    	Select select = new Select(element);
-		    	select.selectByIndex(x);
-		 	      }
+	        public void clickByJS(WebElement element , RemoteWebDriver Driver) {
+	        	JavascriptExecutor js = (JavascriptExecutor)Driver;
+	        	js.executeScript("arguments[0].click()", element);
+	        	  }
+	        
+	        public void fnAlertAccept(RemoteWebDriver Driver) {
+	        	Alert alt = Driver.switchTo().alert();
+	        	alt.accept();
+	             }
+	        
+	        public void fnAlertDismiss(RemoteWebDriver Driver) {
+	        	Alert alt = Driver.switchTo().alert();
+	        	alt.dismiss();
+	             }
+	        public void fnSendKeysToTextField(RemoteWebDriver Driver) {
+	        	Alert alt = Driver.switchTo().alert();
+	             alt.sendKeys("Bhavani");
+	         	       	        
+	             }
+	        public void fnVerifySentText(RemoteWebDriver Driver) {
+	        	//Alert alt = Driver.switchTo().alert();
+	        	String bodyText = Driver.findElement(By.xpath(".//*[contains(text(),'Bhavani!')]")).getText();
+	        	Assert.assertTrue("Text not found!", bodyText.contains("Bhavani"));
+	        	
+	        	        	
+	    }
+	        public void fnAlertToGetText(RemoteWebDriver Driver ) {
+	        	Alert alt = Driver.switchTo().alert();
+	        	String message = alt.getText();
+	            System.out.println("alert message is:" + message);
+	           
+	            
+				}
+	       
+	        }
 	     
-	      }
-	      
-	
+
+
 	
