@@ -3,6 +3,8 @@ package com.mercury.tests;
 
 import org.testng.annotations.Test;
 
+import java.util.Set;
+
 import org.openqa.selenium.Alert;
 import junit.framework.Assert;
 
@@ -24,6 +26,8 @@ import org.testng.annotations.Optional;
 
 public class FunctionLibrary 
 {
+	//Logger log = LoggerFactory.getLogger(getClass());
+	 
 	public void fnselectByIndex(WebElement element, int x)
 	{
 		Select byindex = new Select(element);
@@ -87,10 +91,27 @@ public class FunctionLibrary
 	public void fnVerifyPrompt(WebElement element, String val)
 	{
 		Select select = new Select(element);
-		WebElement ele = select.getFirstSelectedOption();		
-		Assert.assertEquals(val, ele.getText());
+		
+	}
+	
+	public void fnSwitchChildWindow(RemoteWebDriver driver,String mainWindow)
+	{
+		Set<String> allwindows = driver.getWindowHandles();
+		for(String window : allwindows )
+		{
+			if(!window.equals(mainWindow))
+			{
+				driver.switchTo().window(window);
+			
+				System.out.println("Child Window is:"+ driver.getTitle());
+				//log.info("Child Window is:" + driver.getCurrentUrl());
+	
+		}
+			
+		
 	}
 
 	
 
+}
 }
