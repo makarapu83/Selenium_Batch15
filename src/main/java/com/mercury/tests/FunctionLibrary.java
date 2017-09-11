@@ -10,11 +10,13 @@ import java.util.Set;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -83,5 +85,22 @@ Logger log= LoggerFactory.getLogger(getClass());
 		
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.elementToBeClickable(element));
+	}
+	
+	
+	public void fnWaitForFrameAndSwitchToIt(RemoteWebDriver driver, WebElement frame){
+		
+		WebDriverWait wait = new WebDriverWait(driver, 30);		
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(frame));	
+		
+	}
+	
+	public void fnDargDrop(RemoteWebDriver driver, WebElement source, WebElement destination){
+		
+		Actions act = new Actions(driver);
+		act.dragAndDrop(source, destination);
+		act.build().perform();
+		
+		
 	}
 }
