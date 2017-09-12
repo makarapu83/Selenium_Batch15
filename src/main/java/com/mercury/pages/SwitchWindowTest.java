@@ -1,12 +1,9 @@
-package com.mercury.tests;
+package com.mercury.pages;
 
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Test;
 
-import com.mercury.pages.ConfermationPage;
-import com.mercury.pages.FlightSearchPage;
-import com.mercury.pages.MercurySignInPage;
-import com.mercury.pages.SwitchWindow;
+import com.mercury.tests.BaseTest;
 
 public class SwitchWindowTest extends BaseTest
 {
