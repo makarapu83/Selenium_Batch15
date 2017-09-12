@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
 
 public class BaseTest {
   
-	//Mahendar
+	//Mahendar,swathi
 	
 	ThreadLocal<RemoteWebDriver> threadDriver = new ThreadLocal<RemoteWebDriver>();
 	Logger log = LoggerFactory.getLogger(getClass());
