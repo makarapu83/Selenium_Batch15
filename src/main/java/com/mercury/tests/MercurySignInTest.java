@@ -16,7 +16,7 @@ public class MercurySignInTest extends BaseTest{
 	  
 	  MercurySignInPage mTS = new MercurySignInPage(driver);
 	  
-	  mTS.loginToMercury("adminMahi", "adminMahi");
+	  mTS.loginToMercury();
 	  
   }
 }

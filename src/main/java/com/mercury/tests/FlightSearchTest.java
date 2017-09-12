@@ -14,7 +14,7 @@ public class FlightSearchTest extends BaseTest {
 			RemoteWebDriver driver = getDriver();
 			  
 			  MercurySignInPage mTS = new MercurySignInPage(driver);		  
-			  mTS.loginToMercury("adminMahi", "adminMahi");
+			  mTS.loginToMercury();
 			  
 			  FlightSearchPage fSP = new FlightSearchPage(driver);
 			  fSP.FlightSearch();

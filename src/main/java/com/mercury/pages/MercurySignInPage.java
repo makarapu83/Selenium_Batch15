@@ -26,12 +26,12 @@ public class MercurySignInPage {
 	}
 	
   
-  public void loginToMercury(String u, String p) {
+  public void loginToMercury() {
 	  driver.get("http://newtours.demoaut.com/");
 	  _uname.clear();
-	  _uname.sendKeys(System.getenv(u));
+	  _uname.sendKeys(System.getenv("uName"));
 	  _pwd.clear();
-	  _pwd.sendKeys(System.getenv(p));
+	  _pwd.sendKeys(System.getenv("uName"));
 	  _login.click();
   }
 }
