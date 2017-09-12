@@ -33,6 +33,7 @@ public class SwitchWindow extends FunctionLibrary
 		log.info("Main Window is :" +mainWindow);
 		
 		fnClick(_OnClickbtn1);
+		fnSwitchChildWindow(driver,mainWindow);
 	}
   
 }

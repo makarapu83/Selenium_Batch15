@@ -26,7 +26,7 @@ import org.testng.annotations.Optional;
 
 public class FunctionLibrary 
 {
-	//Logger log = LoggerFactory.getLogger(getClass());
+	Logger log = LoggerFactory.getLogger(getClass());
 	 
 	public void fnselectByIndex(WebElement element, int x)
 	{
@@ -103,15 +103,16 @@ public class FunctionLibrary
 			{
 				driver.switchTo().window(window);
 			
-				System.out.println("Child Window is:"+ driver.getTitle());
-				//log.info("Child Window is:" + driver.getCurrentUrl());
+				//System.out.println("Child Window is:"+ driver.getTitle());
+				log.info("Child Window is:" + driver.getCurrentUrl());
 	
 		}
 			
 		
 	}
 
-	
 
 }
+	
+	
 }
